@@ -1,0 +1,29 @@
+
+<div *ngIf="record !=null" class="record-container">
+
+  <div class="title">
+    <app-keyword-to-image class="recordType" [keyword]="record.type" [translationMap]="recordTypeToImageMap" [default]="recordTypeDefault" />
+    <div class="titleText">{{record.properties.title}}</div>
+  </div>
+  <div class="description-container">
+    <div class="overviews">
+      @for (gnImage of record?.properties?.["gn-elastic-index-record"]?.overview;track $index) {
+        <app-gn-image class="overviewImage" [gnImage]="gnImage"></app-gn-image>
+      }
+    </div>
+    <span class="description">{{getFirstSentence(record.properties.description)}}</span><br>
+    <span class="description-minor">{{getOtherSentences(record.properties.description)}}</span>
+    <div>
+      <app-keywords [keywords]="record.properties.keywords"></app-keywords>
+    </div>
+    <div *ngIf="record?.time?.interval !=null" class="calendarContainer">
+      <div class="calendarTitle">
+        <fa-icon [icon]="faCalendar" ></fa-icon>
+        <div>Temporal Extent</div>
+      </div>
+      <div class="calendarText">{{isoDateTime2Date(record?.time?.interval?.[0])}} <fa-icon [icon]="faLongArrowRight" ></fa-icon>  {{isoDateTime2Date(record?.time?.interval?.[1])}} </div>
+    </div>
+  </div>
+
+
+</div>

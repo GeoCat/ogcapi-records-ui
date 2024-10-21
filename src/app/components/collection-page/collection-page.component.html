@@ -1,0 +1,10 @@
+
+<div *ngIf="catalog">
+  <app-catalog-full [catalog]="catalog"></app-catalog-full>
+</div>
+
+ <div>
+  <div class="browse">Browse</div>
+  <a [routerLink]="['/collections/',catalog?.id,'items']" class="browseLink"> See Items in this Collection</a>
+</div>
+

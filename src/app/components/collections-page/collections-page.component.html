@@ -1,0 +1,17 @@
+<div *ngIf="data?.collections != null" class="catalogList">
+
+  @for (catalog of data.collections;track $index) {
+
+    <a [routerLink]="['/collections',catalog.id]">
+      <div class="catalogContainer">
+         <div class="catalogTopRow">
+           <div class="catalogIcon"><img src="{{getIcon(catalog)}}"/></div>
+           <div class="catalogTitle">{{catalog.title}}</div>
+         </div>
+        <div class="catalogDescription">{{catalog.description}}</div>
+      </div>
+    </a>
+
+  }
+
+</div>

@@ -1,0 +1,15 @@
+<div>
+  <div class="contact">
+  <app-contact [title]="'Responsible Party'" [contact]="catalog?.contacts?.[0]"></app-contact>
+</div>
+  <div>
+    <h1>{{catalog?.title}}</h1>
+    <h2>{{catalog?.description}}</h2>
+
+    <app-keywords [keywords]="catalog?.keywords"></app-keywords>
+
+    <app-license [licenseId]="catalog?.license"></app-license>
+
+
+  </div>
+<div>

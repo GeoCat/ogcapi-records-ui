@@ -1,0 +1,6 @@
+
+
+
+<div *ngIf="licenseId !=null" class="licenseContainer" >
+  License:&nbsp;&nbsp;<a class="licenseLink" href="{{LicenseService.convert(licenseId).href}}">{{LicenseService.convert(licenseId).title}}</a>
+</div>

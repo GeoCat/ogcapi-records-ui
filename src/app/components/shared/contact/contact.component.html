@@ -1,0 +1,36 @@
+<div *ngIf="contact" class="contactContainer">
+
+  <div class="contactSummary">
+      <div class="contactTitle">{{title}}</div>
+      <div class="contactOrg">
+        <a *ngIf="contact.links != null &&  contact.links.length>0"  href="{{contact.links[0].href}}">{{contact.organization}}</a>
+        <div *ngIf="contact.links == null ||  contact.links.length ==0"  >{{contact.organization}}</div>
+      </div>
+    <div class="contactPerson">
+        <div class="contactPersonName">{{contact.name}}</div>
+      <div class="contactPersonPosition">{{contact.position}}</div>
+
+    </div>
+  </div>
+
+  <div *ngIf="contact.addresses != null && contact.addresses.length >0" class="contactAddressContainer">
+    <div class="contactTitle">Address</div>
+    <div *ngIf="contact.addresses[0].city != null" class="contactAddress">
+      <div *ngIf="contact.addresses[0].deliveryPoint != null && contact.addresses[0].deliveryPoint.length>0">{{contact.addresses[0].deliveryPoint[0] }}</div>
+      <div>{{contact.addresses[0].administrativeArea}}</div>
+      <div>{{contact.addresses[0].city}}</div>
+      <div>{{contact.addresses[0].country}}</div>
+      <div>{{contact.addresses[0].postalCode}}</div>
+    </div>
+    <div *ngIf="contact.addresses[0].city == null" class="contactAddress">
+      <div *ngIf="contact.addresses[0].deliveryPoint != null && contact.addresses[0].deliveryPoint.length>0">
+        {{contact.addresses[0].deliveryPoint[0] | replaceSubstring: ", " : "&NewLine;"}}
+      </div>
+    </div>
+
+    <div *ngIf="contact.emails?.[0]?.value" class="contactEmail"><a href="mailto:{{contact.emails?.[0]?.value}}">{{contact.emails?.[0]?.value}}</a></div>
+    <div *ngIf="contact.phones?.[0]?.value" class="contactPhone"><a href="tel:{{contact.phones?.[0]?.value}}">{{contact.phones?.[0]?.value}}</a></div>
+
+   </div>
+
+</div>

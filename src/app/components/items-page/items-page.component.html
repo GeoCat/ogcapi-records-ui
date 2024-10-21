@@ -1,0 +1,51 @@
+
+<div class="page-container">
+  <div class="searchContainer">
+
+    <div class="search-box">
+
+      <input type="text" placeholder="Search" class="standard-font" [(ngModel)]="searchText" (keyup.enter)="search()">
+
+      <div class="magnifying-glass-button" (click)="search()">
+        <!-- magnifying glass, from original gn ogcapi html -->
+        <svg class="magnifying-glass" xmlns="http://www.w3.org/2000/svg"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+        </svg>
+      </div>
+      <div  class="circled-x-button"  (click)="searchText=''">
+        <!-- (x), from original gn ogcapi html -->
+        <svg class="circled-x" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"  viewBox="0 0 16 16">
+          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"></path>
+          <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"></path></svg>
+      </div>
+    </div>
+    <div class="results-container" *ngIf="searchResultGeoJSON!=null">
+      <div class="result-nmatch">{{searchResultGeoJSON.numberMatched}} Results</div>
+      <div class="result-items">
+        @for (feature of searchResultGeoJSON.features;track $index) {
+
+          <div class="feature" [routerLink]="['/collections',collectionId,'items',feature.id]">
+            <div class="feature-icon">
+              <div *ngIf="featureOverview(feature) !=null">
+                <!--mark feature as having an imgError if the url is bad-->
+                <img [src]="featureOverview(feature)" (error)="feature.imgError=true"/>
+              </div>
+              <div *ngIf="featureOverview(feature) ==null" >
+                <svg xmlns="http://www.w3.org/2000/svg" class="text-gray-200 absolute h-12 w-12 transform -translate-x-1/2 -translate-y-1/2" style="top: 50%; left: 50%;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+              </div>
+
+            </div>
+            <div class="feature-title">
+              {{feature.properties.title}}
+            </div>
+          </div>
+
+        }
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

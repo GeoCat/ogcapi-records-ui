@@ -1,0 +1,14 @@
+.keywordsContainer {
+  display:flex;
+  flex-direction:row;
+  padding-top:8px;
+}
+
+.keyword {
+  border:1px solid #024c7d;
+  padding: 5px;
+  border-radius: 8px;
+  margin-right: 10px;
+  background-color:#39abf7;
+  color:white;
+}

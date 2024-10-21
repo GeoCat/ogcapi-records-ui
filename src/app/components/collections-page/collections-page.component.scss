@@ -1,0 +1,62 @@
+.catalogList {
+  display:flex;
+  flex-direction: column;
+
+}
+
+.catalogContainer {
+  border:1px solid lightgray;
+  max-width:300px;
+  max-height:200px;
+  padding:12px;
+  margin:10px;
+}
+
+.catalogContainer:hover {
+  border:3px solid lightblue;
+  margin:0px;
+  padding:10px;
+  margin:10px;
+
+}
+
+.catalogTopRow {
+  display:flex;
+  flex-direction: row;
+  border-bottom:1px solid lightgray;
+  padding-bottom: 5px;
+}
+
+.catalogIcon {
+
+}
+
+.catalogIcon img {
+  width:60px;
+  height:60px;
+}
+
+.catalogTitle {
+  padding-left:10px;
+  margin: auto;
+  font-size:20px;
+  color: #444;
+}
+
+.catalogDescription {
+  padding-top:8px;
+  color: #666;
+}
+
+a:link {
+  text-decoration: none;
+}
+a:visited {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+a:active {
+  text-decoration: none;
+}

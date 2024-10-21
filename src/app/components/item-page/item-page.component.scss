@@ -1,0 +1,87 @@
+.title {
+    font-size: 35px;
+    color: rgb(75,75,75);
+    border-bottom:1px solid rgb(150,150,150);
+    display: flex;
+    padding-bottom: 7px;
+}
+.titleText {
+  font-size: 35px;
+  color: rgb(75,75,75);
+  padding-left:5px;
+}
+
+
+.description-container {
+  padding-top:15px;
+}
+
+.description {
+  color: rgb(75,75,75);
+  font-size: 15px;
+ }
+.description-minor {
+  color: rgb(75,75,75);
+  font-size: 15px;
+}
+.record-container {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(245,245,245);
+  margin-top: 20px;
+  padding: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 85%;
+}
+
+.recordType {
+  font-size:30px;
+  margin-top:auto;
+  margin-bottom:auto;
+}
+
+.overviews {
+  float: right;
+  width:25%;
+  display:flex;
+  flex-direction:column;
+}
+
+.overviewImage{
+  max-height:250px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.calendarContainer{
+  display:flex;
+  flex-direction: column;
+  padding-top:12px;
+
+}
+
+.calendarTitle div {
+  margin-top:auto;
+  margin-bottom:auto;
+  font-size:14px;
+  font-weight: bold;
+}
+
+.calendarTitle {
+  display:flex;
+  flex-direction: row;
+}
+
+.calendarContainer fa-icon {
+  font-size:20px;
+  padding-right:5px;
+
+}
+
+.calendarText {
+  margin-top:auto;
+  margin-bottom:auto;
+  padding-left:23px;
+  font-size: 14px;
+}
