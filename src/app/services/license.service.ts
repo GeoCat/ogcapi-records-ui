@@ -2,6 +2,12 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Link} from "../model/contact";
 
+/**
+ * Simple service for converting the ogcapi license into a more human-readable form.
+ *
+ * This gets the spdx license list and will find the referenced-in-the-metadata license in that list.
+ *
+ */
 @Injectable({
   providedIn: 'root'
 })

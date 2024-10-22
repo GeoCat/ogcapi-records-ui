@@ -1,4 +1,11 @@
-
+/**
+ * Support for Image types in the Elastic JSON (GnImage).
+ *
+ * Also, ImageInfo, which should support multiple image types, but currently only font-awesome fonts.
+ *
+ * NOTE: to use font-awesome, you will have to add the individual icons.  See #keyword-to-image.
+ *
+ */
 
 export enum ImageType {
   FontAwesome = 'font-awesome',

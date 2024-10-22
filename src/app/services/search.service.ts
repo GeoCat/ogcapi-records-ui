@@ -4,6 +4,11 @@ import {HttpClient} from "@angular/common/http";
 import {Query} from "../model/query";
 import {QueryParserService} from "./query-parser.service";
 
+
+/**
+ * performs the search and request the queryables JSON.
+ *
+ */
 @Injectable({
   providedIn: 'root'
 })

@@ -4,6 +4,12 @@
 
 import {Contact, Link} from "./contact";
 
+/**
+ *
+ * This is from the OGCAPI-Records `catalog.yaml` type definition.
+ *
+ * See the definition in GN-microservices ogcapi-records (CatalogInfo).
+ */
 export interface Catalog {
   type?: string;      //catalog
   itemType?: string ; //record

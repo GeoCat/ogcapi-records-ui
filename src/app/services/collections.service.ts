@@ -2,6 +2,12 @@ import { Injectable } from '@angular/core';
 import {OgcApiUrlProvider} from "./ogcapi-url-provider.service";
 import {HttpClient} from "@angular/common/http";
 
+
+/**
+ * very simple service for getting:
+ *    a) single collection by id (/collections/collectionId)
+ *    b) all collections (/collections)
+ */
 @Injectable({
   providedIn: 'root'
 })

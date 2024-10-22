@@ -2,6 +2,13 @@ import { Injectable } from '@angular/core';
 import {OgcApiUrlProvider} from "./ogcapi-url-provider.service";
 import {HttpClient} from "@angular/common/http";
 
+/**
+ * Very simple service for the landing page.
+ *
+ * Get the landing page json, which has links and, if configured, metadata about the server.
+ *
+ * NOTE: server metadata is gn-specific.
+ */
 @Injectable({
   providedIn: 'root'
 })

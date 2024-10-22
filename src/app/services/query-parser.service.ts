@@ -1,6 +1,21 @@
 import { Injectable } from '@angular/core';
 import {Query} from "../model/query";
 
+/**
+ * parses the users text and sees if there is a <queryable>:<word> or <querable>:"<words>" (with quotes).
+ *
+ * If so, it will parse them it a simple Map<string, string>
+ *   i.e. id:123
+ *      =>  {"id":"123"}
+ *
+ *   i.e. title:"dove habitat"
+ *      =>  {"title":"dove habitat"}
+ *
+ *  These are put into the Query#queryables map.
+ *
+ *  The other text is left and returned in Query#q
+ *
+ */
 @Injectable({
   providedIn: 'root'
 })

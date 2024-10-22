@@ -1,5 +1,9 @@
-// taken from ogcapi specification - see catalog.yaml and, specifically, contact.yaml
-//also see GN Microservices ogcapi-records
+/**
+ * taken from ogcapi specification - see catalog.yaml and, specifically, contact.yaml
+ *
+ *  also see GN Microservices ogcapi-records
+ */
+
 
 export interface Link {
   rel?: string ;

@@ -1,3 +1,8 @@
+/**
+ * See Query definition in OGCAPI-Records.
+ * Also, see the definition in GN-microservices ogcapi-records.
+ *
+ */
 export class Query {
   q:string;
   queryables:Map<string,string> = new Map<string,string>();
