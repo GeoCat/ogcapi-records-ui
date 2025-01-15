@@ -1,0 +1,8 @@
+.github
+.git
+.editorconfig
+.gitignore
+.vscode
+.github
+dist
+node_modules
