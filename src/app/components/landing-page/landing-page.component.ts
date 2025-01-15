@@ -32,12 +32,12 @@ export class LandingPageComponent {
     let landingPageJson:Observable<any> = this.landingPageService.getLandingPageJson();
     landingPageJson.subscribe(data => {
           let catalog = {};
-          if (!data.systemInfo) {
+          if (!data.catalogInfo) {
             //create bare minimum catalog object
             catalog = {title:data.title, description:data.description, links:data.links};
           }
           else {
-            catalog = data.systemInfo;
+            catalog = data.catalogInfo;
           }
           this.catalog = catalog as Catalog;
         });

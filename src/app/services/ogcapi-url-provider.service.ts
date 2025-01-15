@@ -46,8 +46,8 @@ export class OgcApiUrlProvider {
   }
 
   constructor() {
-    this._landingPageUrl = "http://localhost:9999?f=json";
+    this._landingPageUrl = "http://localhost:7979/ogcapi-records/?f=json";
     //this should be generated from the landing page's JSON (links section).
-    this._collectionsPageUrl = this.simplifyUrl(this.landingPageUrl)+"/collections?f=json";
+    this._collectionsPageUrl = this.simplifyUrl(this.landingPageUrl)+"collections?f=json";
   }
 }

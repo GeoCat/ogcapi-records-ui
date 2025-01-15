@@ -15,7 +15,7 @@ export class CollectionsService {
 
 
   getCollectionJson(collectionId:string) {
-    let url = this.ogcApiUrlProvider.collectionPageUrl(collectionId);
+    let url = this.ogcApiUrlProvider.collectionPageUrl(collectionId)+"?f=json";
     return this.httpClient.get(url);
   }
 

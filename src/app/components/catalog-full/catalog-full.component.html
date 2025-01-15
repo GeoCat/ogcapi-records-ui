@@ -1,6 +1,6 @@
 <div>
   <div class="contact">
-  <app-contact [title]="'Responsible Party'" [contact]="catalog?.contacts?.[0]"></app-contact>
+  <app-contact [title]="'Responsible Party'" [contact]="catalog?.contacts?.at(-1)"></app-contact>
 </div>
   <div>
     <h1>{{catalog?.title}}</h1>
