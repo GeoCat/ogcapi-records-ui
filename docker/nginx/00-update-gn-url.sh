@@ -4,10 +4,10 @@
 
 # Check if GEONETWORK_URL is defined and not empty
 if [ -n "$GEONETWORK_URL" ]; then
-    # Replace "http://localhost:9999" with the value of GEONETWORK_URL in main-*.js files
+    # Replace "http://localhost:7979" with the value of GEONETWORK_URL in main-*.js files
     for file in /usr/share/nginx/html/browser/main-*.js; do
         if [ -f "$file" ]; then
-            sed "s|http://localhost:9999|$GEONETWORK_URL|g" "$file" > "$file.tmp" && mv "$file.tmp" "$file"
+            sed "s|http://localhost:7979|$GEONETWORK_URL|g" "$file" > "$file.tmp" && mv "$file.tmp" "$file"
             echo "Updated $file with GEONETWORK_URL: $GEONETWORK_URL."
         fi
     done
