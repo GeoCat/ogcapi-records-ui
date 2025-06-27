@@ -86,5 +86,21 @@ export class ItemPageComponent {
     return dateTime;
   }
 
+  getLinks() {
+    let alts = this.record.links.filter( (link:any) => link.rel === "alternative");
+    let result = new Map();
+    alts.forEach( (alt:any) => {
+      if (!result.get(alt.type)) {
+        result.set(alt.type, []);
+      }
+      let profiles = result.get(alt.type);
+      console.log(profiles);
+      if (alt.profile)
+        profiles.push({"href":alt.href, "profile":alt.profile[0]});
+      else
+        profiles.push({"href":alt.href, "profile":"default"});
+    })
+    return result;
+  }
 
 }

@@ -25,5 +25,24 @@
     </div>
   </div>
 
+  <div class="linksContainer">
+    <div class="linksTitle">Formats</div>
+    <div>
+        @for (linkByMime of getLinks()  ;track $index) {
+            <div class="linkMimeSet">
+              <div class="linkMime">
+                {{linkByMime[0]}}
+              </div>
+              <ul>
+                @for (link of linkByMime[1] ;track $index) {
+                  <div class="link">
+                    <li><a [attr.href]="link.href">{{link.profile}}</a></li>
+                  </div>
+                }
+              </ul>
+            </div>
+        }
+    </div>
+  </div>
 
 </div>
