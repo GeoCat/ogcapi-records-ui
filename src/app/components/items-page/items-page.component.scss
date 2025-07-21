@@ -2,7 +2,7 @@
 .page-container{
   padding: 10px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row-reverse;
   width: 100%;
 }
 
@@ -117,4 +117,43 @@
 .feature-icon img {
   max-height: 45px;
   max-width: 45px;
+}
+
+
+.facets {
+  margin-top:10px;
+  max-width:250px;
+  overflow-x: auto;
+}
+
+.facetsTitle {
+  font-size:35px;
+  padding-bottom:20px;
+}
+
+
+.facetTitle {
+  font-size:22px;
+  font-weight:bold;
+  padding-top:5px;
+}
+
+
+.cql {
+  margin-top:20px;
+  margin-bottom:20px;
+  background-color:lightgray;
+  border:1px solid black;
+}
+
+.facets ul  {
+  list-style-type: none; /* Remove bullets */
+  padding: 0; /* Remove padding */
+  margin: 0; /* Remove margins */
+}
+
+.facetBuckets {
+  padding-left:20px;
+  display:flex;
+  flex-direction: row;
 }

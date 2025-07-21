@@ -53,6 +53,9 @@ export class SearchService {
     for (const [key, value] of query.queryables.entries()) {
         url += "&"+key+"="+encodeURIComponent(value);
     }
+    if (query.cql && query.cql.length > 0) {
+      url += "&filter="+query.cql;
+    }
     return this.httpClient.get(url);
   }
 
