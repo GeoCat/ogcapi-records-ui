@@ -22,6 +22,7 @@ export class ItemsPageComponent {
   searchResultGeoJSON:any;
   searchResultGeoJSONALL:any;
   cql:string = "";
+  facets:any =null;
 
   featureOverview(feature:any) {
     if (feature.imgError) {
@@ -65,7 +66,17 @@ export class ItemsPageComponent {
     this.activatedRoute.paramMap.subscribe(params => {
       this.collectionId = params.get("collectionId");
       this.getQueryables(this.collectionId);
+      this.getFacets(this.collectionId);
     });
+  }
+
+  private getFacets(collectionId: string | null) {
+    let facets:Observable<any>|null = this.searchService.getFacets(collectionId);
+    if (facets != null) {
+      facets.subscribe(data => {
+        this.facets =data.facets;
+      });
+    }
   }
 
   private getQueryables(collectionId: string | null) {
@@ -97,7 +108,17 @@ export class ItemsPageComponent {
           if (!first) {
             cql = cql + " OR "
           }
-          cql += "("+facet.property + "= '"+ bucket.value+"')  ";
+          if (facet.type === "term") {
+            cql += "(" + facet.property + "= '" + bucket.value + "')";
+          }
+          else if (facet.type === "filter") {
+            let filter = this.facets[facetName].filters[bucket.value ]
+            cql += "(" + filter + ")";
+          }
+          else if (facet.type === "histogram") {
+            let filter = facet.property +">='"+ bucket.min +"' AND " + facet.property +"<'"+ bucket.max+"'"
+            cql += "(" + filter + ")";
+          }
           first = false;
         }
       }
@@ -105,5 +126,6 @@ export class ItemsPageComponent {
     this.cql = cql;
     this.search(false);
   }
+
 
 }

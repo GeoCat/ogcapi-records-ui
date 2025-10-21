@@ -57,14 +57,32 @@
         <div class="facetTitle">{{facet.key}}</div>
         <ul>
         <li class="facetBuckets" *ngFor="let bucket of $any(facet.value).buckets | keyvalue">
-          <div *ngIf="$any(facet.value).type === 'term'">
-            <div>
-              <input type="checkbox" (click)="clickCheckbox(facet, $any(bucket))" [(ngModel)]="$any(bucket).checked">
+          @if ($any(facet.value).type === 'term') {
+              <div >
+                <div>
+                  <input type="checkbox" (click)="clickCheckbox(facet, $any(bucket))" [(ngModel)]="$any(bucket).checked">
+                </div>
+              </div>
+            {{ $any(bucket.value).value}} ({{ $any(bucket.value).count}})
+          }
+          @else if ($any(facet.value).type === 'filter') {
+            <div >
+              <div>
+                <input type="checkbox" (click)="clickCheckbox(facet, $any(bucket))" [(ngModel)]="$any(bucket).checked">
+              </div>
             </div>
-          </div>
-          <div *ngIf="$any(facet.value).type !== 'term'">&#x2022;</div>
+            {{ $any(bucket.value).value}} ({{ $any(bucket.value).count}})
+          }
+          @else {
+            <div >
+              <div>
+                <input type="checkbox" (click)="clickCheckbox(facet, $any(bucket))" [(ngModel)]="$any(bucket).checked">
+              </div>
+            </div>
+            {{ $any(bucket.value).min}} to {{$any(bucket.value).max}}  ({{ $any(bucket.value).count}})
+          }
 
-          {{ $any(bucket.value).value}} ({{ $any(bucket.value).count}})
+
         </li>
         </ul>
       </div>

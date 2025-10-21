@@ -74,6 +74,20 @@ export class SearchService {
     return this.httpClient.get(url);
   }
 
+  /**
+   * get the facets for this collection
+   *    /collections/<collectionId>/facets
+   *
+   * @param collectionId which collection
+   */
+  getFacets(collectionId:string|null)  {
+    if (collectionId == null) {
+      return null;
+    }
+    let url = this.ogcApiUrlProvider.facetsUrl(collectionId);
+    return this.httpClient.get(url);
+  }
+
 
 
 
