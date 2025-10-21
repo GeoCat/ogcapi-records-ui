@@ -29,6 +29,10 @@ export class OgcApiUrlProvider {
     return this.collectionPageUrl(collectionId)+"/queryables?f=json";
   }
 
+  facetsUrl(collectionId:string): string {
+    return this.collectionPageUrl(collectionId)+"/facets?f=json";
+  }
+
   collectionPageUrl(collectionId:string): string {
     return this.simplifyUrl(this._collectionsPageUrl) +"/"+encodeURI(collectionId);
   }

@@ -1,3 +1,14 @@
+# docker build -t dblasby2/ogcapi-records-web .
+# docker push dblasby2/ogcapi-records-web:latest
+#
+# docker run -p 80:80 dblasby2/ogcapi-records-web:latest
+#
+#
+# docker buildx build    --platform linux/amd64,linux/arm64/v8   -t dblasby2/ogcapi-records-web .
+# docker push dblasby2/ogcapi-records-web:latest
+
+
+
 # Stage 1: Build Angular 18 App
 FROM node:20 AS builder
 
@@ -30,4 +41,4 @@ COPY docker/nginx/00-update-gn-url.sh /docker-entrypoint.d/
 
 
 # Expose the necessary ports
-EXPOSE 80  
+EXPOSE 80

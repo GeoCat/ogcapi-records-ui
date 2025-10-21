@@ -6,6 +6,7 @@
 export class Query {
   q:string;
   queryables:Map<string,string> = new Map<string,string>();
+  cql:string ="";
 
   constructor(q:string) {
     this.q = q;

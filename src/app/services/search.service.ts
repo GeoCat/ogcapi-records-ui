@@ -53,6 +53,9 @@ export class SearchService {
     for (const [key, value] of query.queryables.entries()) {
         url += "&"+key+"="+encodeURIComponent(value);
     }
+    if (query.cql && query.cql.length > 0) {
+      url += "&filter="+query.cql;
+    }
     return this.httpClient.get(url);
   }
 
@@ -68,6 +71,20 @@ export class SearchService {
       return null;
     }
     let url = this.ogcApiUrlProvider.queryablesUrl(collectionId);
+    return this.httpClient.get(url);
+  }
+
+  /**
+   * get the facets for this collection
+   *    /collections/<collectionId>/facets
+   *
+   * @param collectionId which collection
+   */
+  getFacets(collectionId:string|null)  {
+    if (collectionId == null) {
+      return null;
+    }
+    let url = this.ogcApiUrlProvider.facetsUrl(collectionId);
     return this.httpClient.get(url);
   }
 
